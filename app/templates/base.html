@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Notes App</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR START -->
+
+    <nav class="navbar navbar-dark bg-dark">
+
+        <div class="container">
+
+            <a class="navbar-brand"
+               href="{% url 'home' %}">
+
+               Notes App
+
+            </a>
+
+            <a href="{% url 'add_note' %}"
+               class="btn btn-success">
+
+               Add Note
+
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- NAVBAR END -->
+
+
+    <div class="container py-5">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+
+</body>
+<footer class="bg-dark text-white text-center p-3 mt-5">
+
+    Django Notes App © 2026
+
+</footer>
+
+</html>

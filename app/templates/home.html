@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-center mb-4">
+
+    All Notes
+
+</h1>
+
+
+<form method="GET"
+      class="mb-4">
+
+    <input type="text"
+           name="search"
+           class="form-control shadow-sm p-3"
+           placeholder="Search notes">
+
+</form>
+
+
+<div class="row justify-content-center">
+
+    {% if notes %}
+
+        {% for note in notes %}
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg border-0 mb-4 h-100">
+
+                <div class="card-body p-4">
+
+                    <h3 class="fw-bold mb-3">
+
+                        {{ note.title }}
+
+                    </h3>
+
+                    <p class="text-muted">
+
+                        {{ note.content }}
+
+                    </p>
+
+                    <span class="badge bg-dark px-3 py-2">
+
+                        {{ note.category }}
+
+                    </span>
+
+                    <br><br>
+
+                    <a href="{% url 'delete_note' note.id %}"
+                       class="btn btn-danger btn-sm">
+
+                       Delete
+
+                    </a>
+
+                    <a href="{% url 'update_note' note.id %}"
+                       class="btn btn-warning btn-sm">
+
+                       Update
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+    <div class="text-center mt-5">
+
+        <h3>No Notes Found</h3>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

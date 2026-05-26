@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">
+
+    Update Note
+
+</h1>
+
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <input type="text"
+           name="title"
+           value="{{ note.title }}"
+           class="form-control mb-3">
+
+
+    <textarea name="content"
+              class="form-control mb-3">
+
+{{ note.content }}
+
+</textarea>
+
+
+    <select name="category"
+            class="form-control mb-3">
+
+        {% for category in categories %}
+
+        <option value="{{ category.id }}">
+
+            {{ category.name }}
+
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+
+    <button type="submit"
+            class="btn btn-warning">
+
+        Update Note
+
+    </button>
+
+</form>
+
+{% endblock %}
